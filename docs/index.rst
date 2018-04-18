@@ -6,12 +6,13 @@
 Welcome to code_ige's documentation!
 ====================================
 
+Here you can find some basic and more evoluate example of python plot for
+science.
+
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
 
-    auto_examples/index
-
+   auto_examples/index
 
 Indices and tables
 ==================

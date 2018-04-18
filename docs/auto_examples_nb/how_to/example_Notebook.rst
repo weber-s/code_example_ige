@@ -27,7 +27,7 @@ des maths :
 
 .. parsed-literal::
 
-    [<matplotlib.lines.Line2D at 0x7f3009f3f198>]
+    [<matplotlib.lines.Line2D at 0x7fb31372e1d0>]
 
 
 

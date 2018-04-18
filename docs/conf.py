@@ -13,7 +13,7 @@
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
 # import os
-# import sys
+import sys
 # sys.path.insert(0, os.path.abspath('.'))
 
 
@@ -41,6 +41,7 @@ release = ''
 extensions = [
     'sphinx.ext.mathjax',
     'sphinx.ext.viewcode',
+    'sphinx.ext.intersphinx',
     'sphinx_gallery.gen_gallery',
 ]
 
@@ -98,7 +99,9 @@ html_static_path = ['_static']
 # default: ``['localtoc.html', 'relations.html', 'sourcelink.html',
 # 'searchbox.html']``.
 #
-# html_sidebars = {}
+html_sidebars = {
+    '**': ['globaltoc.html', 'sourcelink.html']
+}
 
 
 # -- Options for HTMLHelp output ---------------------------------------------
@@ -159,9 +162,24 @@ texinfo_documents = [
 
 
 # -- Extension configuration -------------------------------------------------
+
+intersphinx_mapping = {
+    'python': ('https://docs.python.org/{.major}'.format(sys.version_info), None),
+    'numpy': ('https://docs.scipy.org/doc/numpy/', None),
+    'scipy': ('https://docs.scipy.org/doc/scipy/reference', None),
+    'matplotlib': ('https://matplotlib.org/', None),
+    'sklearn': ('http://scikit-learn.org/stable', None),
+    'pandas': ('https://pandas.pydata.org/pandas-docs/stable/', None),
+    'sphinx': ('http://www.sphinx-doc.org/en/stable', None),
+}
+
 sphinx_gallery_conf = {
-     # path to your examples scripts
-     'examples_dirs': '../examples',
-     # path where to save gallery generated examples
-     'gallery_dirs': 'auto_examples',
+    # path to your examples scripts
+    'examples_dirs': '../examples',
+    # path where to save gallery generated examples
+    'gallery_dirs': 'auto_examples',
+    'backreferences_dir': False,
+    # 'reference_url': {
+    #     'sphinx_gallery': None,
+    # }
 }

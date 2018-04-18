@@ -1,5 +1,5 @@
 .. _examples-index:
 
-Gallery of Gallery
-==================
+Gallery of examples
+===================
 

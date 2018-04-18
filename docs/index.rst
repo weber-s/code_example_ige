@@ -3,14 +3,36 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to code_ige's documentation!
-====================================
+IGE code example repo
+=====================
 
-Here you can find some basic and more evoluate example of python plot for
+What's that?
+------------
+
+Here you can find some basic and more evoluate example of python script for
 science.
+
+It goes from basic file manipulation to plotting map.
+
+
+Come on, we have cookies!
+-------------------------
+You are more than welcome if you wan't to contribute. This site uses
+``sphinx-gallery`` and is developped `on github <https://github.com/weber-s/code_example_ige>`_.
+Feel free to add your own examples, either :
+
+- **manually** in github via the ``Create new file`` or ``Upload files`` in the
+  ``examples`` folder.
+- **with git** by cloning/forking the depot ``git clone
+  https://github.com/weber-s/code_example_ige``, edit it then make a pull
+  request.
+  If you wan't to build it locally, follow the documentation in the README on
+  github.
+
 
 .. toctree::
    :maxdepth: 2
+   :Caption: List of galleries
 
    auto_examples/index
 
@@ -18,5 +40,4 @@ Indices and tables
 ==================
 
 * :ref:`genindex`
-* :ref:`modindex`
 * :ref:`search`

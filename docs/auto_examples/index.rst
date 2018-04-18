@@ -2,8 +2,8 @@
 
 .. _examples-index:
 
-Gallery of Gallery
-==================
+Gallery of examples
+===================
 
 
 
@@ -11,16 +11,11 @@ Gallery of Gallery
 
     <div style='clear:both'></div>
 
-.. _examples-basic-index:
-
-Basic utility
-=============
-
 
 .. _basic_examples:
 
 Basic examples
-----------------
+--------------
 
 General-purpose and introductory to plot and file manipulation in python for
 science.
@@ -66,6 +61,18 @@ science.
    :hidden:
 
    /auto_examples/basic/plot_basic
+.. raw:: html
+
+    <div style='clear:both'></div>
+
+
+.. _map_examples:
+
+Plotting map
+------------
+
+
+
 .. raw:: html
 
     <div style='clear:both'></div>

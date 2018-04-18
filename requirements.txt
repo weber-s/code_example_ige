@@ -3,4 +3,4 @@ pandas
 pillow
 sphinx
 sphinx-gallery
-nbsphinx
+sphinx_nbexamples

@@ -14,6 +14,7 @@
 #
 # import os
 import sys
+import sphinx_nbexamples
 # sys.path.insert(0, os.path.abspath('.'))
 
 
@@ -42,8 +43,9 @@ extensions = [
     'sphinx.ext.mathjax',
     'sphinx.ext.viewcode',
     'sphinx.ext.intersphinx',
-    'nbsphinx',
+    # 'nbsphinx',
     'sphinx_gallery.gen_gallery',
+    'sphinx_nbexamples',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -190,11 +192,16 @@ intersphinx_mapping = {
 
 sphinx_gallery_conf = {
     # path to your examples scripts
-    'examples_dirs': '../examples',
+    'examples_dirs': '../examples_plot',
     # path where to save gallery generated examples
-    'gallery_dirs': 'auto_examples',
+    'gallery_dirs': 'auto_examples_plot',
     'backreferences_dir': False,
     # 'reference_url': {
     #     'sphinx_gallery': None,
     # }
+}
+
+example_gallery_config = {
+    'examples_dirs': ['../examples_nb'],
+    'gallery_dirs': 'auto_examples_nb',
 }

@@ -31,21 +31,16 @@ Feel free to add your own examples, either :
 
 
 .. toctree::
-   :maxdepth: 2
-   :glob:
+   :maxdepth: 3
    :Caption: Gallery
 
-   auto_examples/index
+   auto_examples_plot/index
+   auto_examples_nb/index
 
-.. toctree::
-   :maxdepth: 1
-   :glob:
-   :Caption: Notebooks
-
-   notebooks/*
 
 Indices and tables
 ==================
 
 * :ref:`genindex`
 * :ref:`search`
+

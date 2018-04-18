@@ -32,9 +32,17 @@ Feel free to add your own examples, either :
 
 .. toctree::
    :maxdepth: 2
-   :Caption: List of galleries
+   :glob:
+   :Caption: Gallery
 
    auto_examples/index
+
+.. toctree::
+   :maxdepth: 1
+   :glob:
+   :Caption: Notebooks
+
+   notebooks/*
 
 Indices and tables
 ==================

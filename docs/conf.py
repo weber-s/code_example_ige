@@ -19,7 +19,7 @@ import sys
 
 # -- Project information -----------------------------------------------------
 
-project = 'code_ige'
+project = 'IGE graphs'
 copyright = '2018, samuel'
 author = 'samuel'
 
@@ -42,6 +42,7 @@ extensions = [
     'sphinx.ext.mathjax',
     'sphinx.ext.viewcode',
     'sphinx.ext.intersphinx',
+    'nbsphinx',
     'sphinx_gallery.gen_gallery',
 ]
 
@@ -67,7 +68,7 @@ language = None
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path .
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
+exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '**.ipynb_checkpoints']
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'
@@ -84,7 +85,16 @@ html_theme = 'alabaster'
 # further.  For a list of options available for each theme, see the
 # documentation.
 #
-# html_theme_options = {}
+html_theme_options = {
+    'body_text_align': 'justify',
+    'github_user': 'weber-s',
+    'github_repo': 'code_example_ige',
+    'github_count': False,
+    'github_button': True,
+    'page_width': '1100px',
+    'font_family': '"Lato","proxima-nova","Helvetica Neue",Arial,sans-serif',
+
+}
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
@@ -100,14 +110,19 @@ html_static_path = ['_static']
 # 'searchbox.html']``.
 #
 html_sidebars = {
-    '**': ['globaltoc.html', 'sourcelink.html']
+    '**': ['about.html',
+           'navigation.html',
+           'relations.html',
+           'searchbox.html',
+           'sourcelink.html'
+          ]
 }
 
 
 # -- Options for HTMLHelp output ---------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'code_igedoc'
+htmlhelp_basename = 'ige_graphsdoc'
 
 
 # -- Options for LaTeX output ------------------------------------------------
@@ -134,7 +149,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'code_ige.tex', 'code\\_ige Documentation',
+    (master_doc, 'ige_graph.tex', 'ige_graph Documentation',
      'samuel', 'manual'),
 ]
 
@@ -144,7 +159,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'code_ige', 'code_ige Documentation',
+    (master_doc, 'ige_graph', 'ige_graph Documentation',
      [author], 1)
 ]
 
@@ -155,8 +170,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'code_ige', 'code_ige Documentation',
-     author, 'code_ige', 'One line description of project.',
+    (master_doc, 'ige_graph', 'ige_graph Documentation',
+     author, 'ige_graph', 'One line description of project.',
      'Miscellaneous'),
 ]
 

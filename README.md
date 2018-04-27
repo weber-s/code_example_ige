@@ -14,3 +14,14 @@ Please, feel free to contribute!
 
 For now, the site is hosted at https://pmall.univ-grenoble-alpes.fr/docs, but it
 should migrate at some point.
+
+# Example that may be included
+
+- [ ] file retrieval
+- [ ] Time manipulation
+- [ ] windrose
+- Mapping:
+  * [ ] plot point on a map (station, sampling point, etc.)
+  * [ ] interpolation in a map (precipitation, temperature, concentration, etc.)
+  * [ ] GIS related stuff (zone of interest, compute area, etc.)
+- [ ] ...

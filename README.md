@@ -1,9 +1,9 @@
 # Code example for science at IGE
 
-This documentation aims to help students and researcher in the "environment"
+This documentation aims to help students and researcher in the field of "environmental"
 geosciences to produce useful graph.
 
-Most of use tried during hours to plot a kind of graph something that someone else already plotted. Why not simply share code?
+Most of us tried during hours to plot a kind of graph that someone else already plotted (windrose, map, etc.). Why not simply share code and save us hours or days?
 
 This is the purpose of this documentation.
 

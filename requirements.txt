@@ -3,5 +3,4 @@ pandas
 seaborn
 pillow
 sphinx
-sphinx-gallery
-sphinx_nbexamples
+git+https://github.com/sphinx-gallery/sphinx-gallery

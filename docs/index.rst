@@ -34,7 +34,7 @@ Feel free to add your own examples, either :
    :maxdepth: 3
    :Caption: Gallery
 
-   auto_examples_plot/index
+   auto_examples_code/index
 
 
 Indices and tables

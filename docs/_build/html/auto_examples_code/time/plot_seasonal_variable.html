@@ -1,0 +1,246 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Add season DataFrame and categorical plot &#8212; IGE graphs  documentation</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/gallery.css" type="text/css" />
+    <script type="text/javascript" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="Basic file retrieval and manipulation" href="../basic/plot_basic.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="add-season-dataframe-and-categorical-plot">
+<span id="sphx-glr-auto-examples-code-time-plot-seasonal-variable-py"></span><h1>Add season DataFrame and categorical plot<a class="headerlink" href="#add-season-dataframe-and-categorical-plot" title="Permalink to this headline">¶</a></h1>
+<p>Add season (DJF, MAM, JJA, SON) to an existing dataframe then use seaborn to
+plot distribution of value grouping by season.</p>
+<p>This example cover the following basic:</p>
+<blockquote>
+<div><ul class="simple">
+<li>group a dataframe by season</li>
+<li>plot seasonal distribution of a variable</li>
+</ul>
+</div></blockquote>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+
+<span class="c1"># Load some atmospheric PM concentration at Grenoble Les Frenes from 2007 to 2018</span>
+<span class="n">csv_file</span> <span class="o">=</span> <span class="s1">&#39;https://gist.githubusercontent.com/weber-s/4451562bb408fbfafc7b80520faa0773/raw/1989bcbc19894aad99feeb0f12dd1b36b8380960/PM_GRE-fr&#39;</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">csv_file</span><span class="p">)</span>
+
+<span class="c1"># Let&#39;s have a look at what is inside</span>
+<span class="k">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</pre></div>
+</div>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PMrecons</span> <span class="n">Particle</span> <span class="n">size</span>        <span class="n">date</span> <span class="n">station</span>
+<span class="mi">0</span>  <span class="mf">25.31859</span>          <span class="n">PM10</span>  <span class="mi">2007</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">18</span>  <span class="n">GRE</span><span class="o">-</span><span class="n">fr</span>
+<span class="mi">1</span>  <span class="mf">37.30408</span>          <span class="n">PM10</span>  <span class="mi">2007</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">20</span>  <span class="n">GRE</span><span class="o">-</span><span class="n">fr</span>
+<span class="mi">2</span>  <span class="mf">37.56801</span>          <span class="n">PM10</span>  <span class="mi">2007</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">21</span>  <span class="n">GRE</span><span class="o">-</span><span class="n">fr</span>
+<span class="mi">3</span>  <span class="mf">50.50939</span>          <span class="n">PM10</span>  <span class="mi">2007</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">22</span>  <span class="n">GRE</span><span class="o">-</span><span class="n">fr</span>
+<span class="mi">4</span>  <span class="mf">52.45696</span>          <span class="n">PM10</span>  <span class="mi">2007</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">23</span>  <span class="n">GRE</span><span class="o">-</span><span class="n">fr</span>
+</pre></div>
+</div>
+<p>We want “date” as a date. So we convert it to datetime object</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">])</span>
+
+<span class="c1"># Set the date as index</span>
+<span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">drop</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Now, we wan’t to group it by season: DJF, MAM, JJA, SON. Even if a date object
+has a lot of attribut (.day, .month, .year, etc), it does have a .season.
+Mostly because what we call “season” change from people to people and place to
+place. We then have to construct it ourself.</p>
+<p>This function is copy-pastable, so some extra work are done (check for index,
+type of date, etc).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add_season</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Add a season column to the DataFrame df.</span>
+
+<span class="sd">    parameters</span>
+<span class="sd">    ----------</span>
+
+<span class="sd">    df: Pandas DataFrame.</span>
+<span class="sd">        The DataFrame to work with.</span>
+
+<span class="sd">    return</span>
+<span class="sd">    ------</span>
+
+<span class="sd">    dfnew: a new pandas DataFrame with a &#39;season&#39; columns.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">month_to_season</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span><span class="s1">&#39;DJF&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span><span class="s1">&#39;DJF&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span><span class="s1">&#39;MAM&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">:</span><span class="s1">&#39;MAM&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">:</span><span class="s1">&#39;MAM&#39;</span><span class="p">,</span> <span class="mi">6</span><span class="p">:</span><span class="s1">&#39;JJA&#39;</span><span class="p">,</span>
+                       <span class="mi">7</span><span class="p">:</span><span class="s1">&#39;JJA&#39;</span><span class="p">,</span> <span class="mi">8</span><span class="p">:</span><span class="s1">&#39;JJA&#39;</span><span class="p">,</span> <span class="mi">9</span><span class="p">:</span><span class="s1">&#39;SON&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">:</span><span class="s1">&#39;SON&#39;</span><span class="p">,</span> <span class="mi">11</span><span class="p">:</span><span class="s1">&#39;SON&#39;</span><span class="p">,</span> <span class="mi">12</span><span class="p">:</span><span class="s1">&#39;DJF&#39;</span><span class="p">}</span>
+
+    <span class="n">dfnew</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+    <span class="c1"># ensure we have date in index</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dfnew</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DatetimeIndex</span><span class="p">):</span>
+        <span class="n">dfnew</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dfnew</span><span class="o">.</span><span class="n">index</span>
+    <span class="k">elif</span> <span class="s1">&#39;date&#39;</span> <span class="ow">in</span> <span class="n">dfnew</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+        <span class="n">dfnew</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">dfnew</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;No date given&quot;</span><span class="p">)</span>
+        <span class="k">return</span>
+
+    <span class="c1"># add a new column with the number of the month (Jan=1, etc)</span>
+    <span class="n">dfnew</span><span class="p">[</span><span class="s2">&quot;month&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dfnew</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">month</span><span class="p">)</span>
+    <span class="c1"># sort it. This is not mandatory.</span>
+    <span class="n">dfnew</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s2">&quot;month&quot;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+    <span class="c1"># add the season base on the month number</span>
+    <span class="n">dfnew</span><span class="p">[</span><span class="s2">&quot;season&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dfnew</span><span class="p">[</span><span class="s2">&quot;month&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">month_to_season</span><span class="p">)</span>
+
+    <span class="c1"># and return the new dataframe</span>
+    <span class="k">return</span> <span class="n">dfnew</span>
+</pre></div>
+</div>
+<p>Now we can use this function to add a ‘season’ and ‘month’ column to our
+dataframe.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">add_season</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</pre></div>
+</div>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PMrecons</span> <span class="n">Particle</span> <span class="n">size</span> <span class="n">station</span>       <span class="n">date</span>  <span class="n">month</span> <span class="n">season</span>
+<span class="n">date</span>
+<span class="mi">2012</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">02</span>  <span class="mf">20.53204</span>          <span class="n">PM10</span>  <span class="n">GRE</span><span class="o">-</span><span class="n">fr</span> <span class="mi">2012</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">02</span>      <span class="mi">1</span>    <span class="n">DJF</span>
+<span class="mi">2016</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">11</span>   <span class="mf">4.15967</span>          <span class="n">PM10</span>  <span class="n">GRE</span><span class="o">-</span><span class="n">fr</span> <span class="mi">2016</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">11</span>      <span class="mi">1</span>    <span class="n">DJF</span>
+<span class="mi">2009</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">29</span>  <span class="mf">36.87002</span>          <span class="n">PM10</span>  <span class="n">GRE</span><span class="o">-</span><span class="n">fr</span> <span class="mi">2009</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">29</span>      <span class="mi">1</span>    <span class="n">DJF</span>
+<span class="mi">2009</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">28</span>  <span class="mf">22.75429</span>          <span class="n">PM10</span>  <span class="n">GRE</span><span class="o">-</span><span class="n">fr</span> <span class="mi">2009</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">28</span>      <span class="mi">1</span>    <span class="n">DJF</span>
+<span class="mi">2009</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">27</span>  <span class="mf">16.51262</span>          <span class="n">PM10</span>  <span class="n">GRE</span><span class="o">-</span><span class="n">fr</span> <span class="mi">2009</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">27</span>      <span class="mi">1</span>    <span class="n">DJF</span>
+</pre></div>
+</div>
+<p>Note that now, our dataframe has 2 new columns: ‘month’ and ‘season’.
+We then use the <cite>seaborn</cite> library to plot categorical data, for instance the
+boxplot per season of PM.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="kn">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;season&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;PMrecons&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="../../_images/sphx_glr_plot_seasonal_variable_001.png" class="align-center" src="../../_images/sphx_glr_plot_seasonal_variable_001.png" />
+<p><strong>Total running time of the script:</strong> ( 0 minutes  2.121 seconds)</p>
+<div class="sphx-glr-footer docutils container">
+<div class="sphx-glr-download docutils container">
+<a class="reference download internal" href="../../_downloads/plot_seasonal_variable.py" download=""><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_seasonal_variable.py</span></code></a></div>
+<div class="sphx-glr-download docutils container">
+<a class="reference download internal" href="../../_downloads/plot_seasonal_variable.ipynb" download=""><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_seasonal_variable.ipynb</span></code></a></div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.readthedocs.io">Gallery generated by Sphinx-Gallery</a></p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">IGE graphs</a></h1>
+
+
+
+
+
+
+<p>
+<iframe src="https://ghbtns.com/github-btn.html?user=weber-s&repo=code_example_ige&type=watch&count=False&size=large&v=2"
+  allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="35px"></iframe>
+</p>
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Gallery</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Gallery of plot</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../example_courbes-melange.html">diagrammes géochimiques de base</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#basic-examples">Basic examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#plotting-map">Plotting map</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#time-manipulation-examples">Time manipulation examples</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Add season DataFrame and categorical plot</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Gallery of plot</a><ul>
+      <li>Previous: <a href="../basic/plot_basic.html" title="previous chapter">Basic file retrieval and manipulation</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/auto_examples_code/time/plot_seasonal_variable.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, samuel.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../../_sources/auto_examples_code/time/plot_seasonal_variable.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

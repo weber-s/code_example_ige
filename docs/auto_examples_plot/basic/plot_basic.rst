@@ -87,7 +87,7 @@ also remove the -99.99 value (no measure).
 
 
 
-**Total running time of the script:** ( 0 minutes  0.445 seconds)
+**Total running time of the script:** ( 0 minutes  0.423 seconds)
 
 
 

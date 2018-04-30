@@ -1,4 +1,4 @@
-.. _basic_plot_examples:
+* .. _basic_plot_examples:
 
 Basic examples
 --------------

@@ -4,11 +4,31 @@ Gallery of plot
 ===============
 
 
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="un truc qu’on fait souvent, en géochimie, c’est de tracer des graphes débiles. typiquement des ...">
+
+.. only:: html
+
+    .. figure:: /auto_examples_plot/images/thumb/sphx_glr_plot_courbes_thumb.png
+
+        :ref:`sphx_glr_auto_examples_plot_plot_courbes.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples_plot/plot_courbes
 .. raw:: html
 
     <div style='clear:both'></div>
 
-.. _basic_plot_examples:
+* .. _basic_plot_examples:
 
 Basic examples
 --------------
@@ -18,6 +38,26 @@ science.
 
 
 
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Déjà, on import les librairies python kivonbien®.">
+
+.. only:: html
+
+    .. figure:: /auto_examples_plot/basic/images/thumb/sphx_glr_plot_test_thumb.png
+
+        :ref:`sphx_glr_auto_examples_plot_basic_plot_test.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples_plot/basic/plot_test
 
 .. raw:: html
 
@@ -71,6 +111,37 @@ Plotting map
 
     <div style='clear:both'></div>
 
+.. _time_examples:
+
+Time manipulation examples
+--------------------------
+
+
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Add season (DJF, MAM, JJA, SON) to an existing dataframe then use seaborn to plot distribution ...">
+
+.. only:: html
+
+    .. figure:: /auto_examples_plot/time/images/thumb/sphx_glr_plot_seasonal_variable_thumb.png
+
+        :ref:`sphx_glr_auto_examples_plot_time_plot_seasonal_variable.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples_plot/time/plot_seasonal_variable
+.. raw:: html
+
+    <div style='clear:both'></div>
+
 
 
 .. only :: html
@@ -80,13 +151,13 @@ Plotting map
 
   .. container:: sphx-glr-download
 
-    :download:`Download all examples in Python source code: auto_examples_plot_python.zip <//home/webersa/Documents/code_example_ige/docs/auto_examples_plot/auto_examples_plot_python.zip>`
+    :download:`Download all examples in Python source code: auto_examples_plot_python.zip <//home/samuel/Documents/IGE/code_example_ige/docs/auto_examples_plot/auto_examples_plot_python.zip>`
 
 
 
   .. container:: sphx-glr-download
 
-    :download:`Download all examples in Jupyter notebooks: auto_examples_plot_jupyter.zip <//home/webersa/Documents/code_example_ige/docs/auto_examples_plot/auto_examples_plot_jupyter.zip>`
+    :download:`Download all examples in Jupyter notebooks: auto_examples_plot_jupyter.zip <//home/samuel/Documents/IGE/code_example_ige/docs/auto_examples_plot/auto_examples_plot_jupyter.zip>`
 
 
 .. only:: html

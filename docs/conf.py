@@ -14,7 +14,10 @@
 #
 # import os
 import sys
+<<<<<<< HEAD
 import sphinx_nbexamples
+=======
+>>>>>>> e4cb41d... WIP
 # sys.path.insert(0, os.path.abspath('.'))
 
 
@@ -201,7 +204,3 @@ sphinx_gallery_conf = {
     # }
 }
 
-example_gallery_config = {
-    'examples_dirs': ['../examples_nb'],
-    'gallery_dirs': 'auto_examples_nb',
-}

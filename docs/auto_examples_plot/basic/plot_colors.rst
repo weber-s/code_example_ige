@@ -82,7 +82,7 @@ with interleaving prose.
     This writes to stdout and will be  displayed in the HTML file
 
 
-**Total running time of the script:** ( 0 minutes  0.042 seconds)
+**Total running time of the script:** ( 0 minutes  0.102 seconds)
 
 
 

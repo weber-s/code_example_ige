@@ -35,7 +35,6 @@ Feel free to add your own examples, either :
    :Caption: Gallery
 
    auto_examples_plot/index
-   auto_examples_nb/index
 
 
 Indices and tables

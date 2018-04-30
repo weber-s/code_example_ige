@@ -14,7 +14,8 @@
 #
 # import os
 import sys
-# sys.path.insert(0, os.path.abspath('.'))
+import os
+sys.path.insert(0, os.path.abspath('.'))
 
 
 # -- Project information -----------------------------------------------------
@@ -113,7 +114,7 @@ html_sidebars = {
            'navigation.html',
            'relations.html',
            'searchbox.html',
-           'sourcelink.html'
+           # 'sourcelink.html'
           ]
 }
 
@@ -178,13 +179,12 @@ texinfo_documents = [
 # -- Extension configuration -------------------------------------------------
 
 intersphinx_mapping = {
-    'python': ('https://docs.python.org/{.major}'.format(sys.version_info), None),
+    'python': ('https://docs.python.org/3', None),
     'numpy': ('https://docs.scipy.org/doc/numpy/', None),
     'scipy': ('https://docs.scipy.org/doc/scipy/reference', None),
     'matplotlib': ('https://matplotlib.org/', None),
     'sklearn': ('http://scikit-learn.org/stable', None),
     'pandas': ('https://pandas.pydata.org/pandas-docs/stable/', None),
-    'sphinx': ('http://www.sphinx-doc.org/en/stable', None),
 }
 
 sphinx_gallery_conf = {
@@ -192,11 +192,8 @@ sphinx_gallery_conf = {
     'examples_dirs': '../examples_code',
     # path where to save gallery generated examples
     'gallery_dirs': 'auto_examples_code',
-    'backreferences_dir': False,
     'filename_pattern': '',
-    'reference_url': {
-        'sphinx_gallery': None,
-    }
+    'backreferences_dir': 'gen_modules/backreferences',
 }
 
 import glob

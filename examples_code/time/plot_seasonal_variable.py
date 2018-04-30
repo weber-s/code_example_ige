@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 r"""
-Add season DataFrame and categorical plot
-=========================================
+Add season to a DataFrame
+=========================
 
-Add season (DJF, MAM, JJA, SON) to an existing dataframe then use seaborn to
-plot distribution of value grouping by season.
+Add season (DJF, MAM, JJA, SON) to an existing dataframe.
+Then use seaborn to plot distribution of value grouping by season.
 """
 
 ################################################################################
-#This example cover the following basic:
+#This example covers the following basic:
 #    
 #    - group a dataframe by season
 #    - plot seasonal distribution of a variable
@@ -76,14 +76,14 @@ def add_season(df):
     # sort it. This is not mandatory.
     dfnew.sort_values(by="month", inplace=True)
 
-    # add the season base on the month number
+    # add the season based on the month number
     dfnew["season"] = dfnew["month"].replace(month_to_season)
 
     # and return the new dataframe
     return dfnew
 
 ###############################################################################
-# Now we can use this function to add a 'season' and 'month' column to our
+# Now we can use this function to add a 'season' and 'month' columns to our
 # dataframe.
 
 df = add_season(df)
@@ -98,7 +98,8 @@ print(df.head())
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-sns.boxplot(data=df, x='season', y='PMrecons')
-
-plt.show()
-
+sns.set()
+sns.set_context("talk")
+ax = sns.boxplot(data=df, x='season', y='PMrecons')
+ax.set_ylabel("PM reconstructed ($µg.m^{-3}$)")
+ax.set_xlabel("")

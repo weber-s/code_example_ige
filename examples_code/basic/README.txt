@@ -1,5 +1,3 @@
-* .. _basic_plot_examples:
-
 Basic examples
 --------------
 

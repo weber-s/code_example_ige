@@ -2,18 +2,18 @@
 diagrammes géochimiques de base
 -------------------------------
 
-un truc qu’on fait souvent, en géochimie, c’est de tracer des graphes
+un truc qu'on fait souvent, en géochimie, c'est de tracer des graphes
 débiles. typiquement des graphes ratio-ratio ou alors des graphes
-ternaires (pas pour ce qui me concerne, mais bon…)
+ternaires (pas pour ce qui me concerne, mais bon...)
 
 et puis, quand on fait des graphes ratio-ratio, il y a toujours la
-question de la drotie de mélange. est-ce que c’est une droite ? pas une
+question de la drotie de mélange. est-ce que c'est une droite ? pas une
 droite ?
 
-et puis d’abord je veux un graphe en log-log, parce que c’est plus
+et puis d'abord je veux un graphe en log-log, parce que c'est plus
 lisible. et puis il y en a qui disent que quand on fait du
-fractionnement continu, on devrait de toute façon faire du log-log… mais
-quid de la courbe de mélange ?
+fractionnement continu, on devrait de toute façon faire du log-log...
+mais quid de la courbe de mélange ?
 
 allons y voir de plus près
 

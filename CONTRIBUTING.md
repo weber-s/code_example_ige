@@ -27,7 +27,7 @@ has the following architecture:
 └── requirements.txt
 ```
 
-Every example (notebook or python) are stored in `example_code/<something>`.
+Every example (notebook or python) are stored in `examples_code/<something>`.
 The html page are stored into the `docs/` folder.
 
 How to contribute?
@@ -35,19 +35,19 @@ How to contribute?
 
 There is **no need to be an expert in python** nor in sysadmin to easily contribute
 to this documentation. Indeed, you can simply upload a jupyter-notebook into the
-[example_code](example_code) folder and *tada*, it will work.
+[examples_code](examples_code) folder and *tada*, it will work.
 
 
 For those who don't like jupyter, you can also upload a `.py` file. However, the
 format is a bit special. Follow the
 [sphinx-gallery documentation](https://sphinx-gallery.readthedocs.io/en/latest/syntax.html#)
 or see the code of
-[example_code/basic/plot_basic.py](example_code/basic/plot_basic.py).
+[examples_code/basic/plot_basic.py](examples_code/basic/plot_basic.py).
 
 To sum up:
 
 1. create your example either with jupyter-notebook or directly in python
-2. upload your example to `example_code/<yourfavoritepath>` (via github or git)
+2. upload your example to `examples_code/<yourfavoritepath>` (via github or git)
 3. (optional) create a new example and go to 2.
 
 How to build the documentation?
@@ -79,5 +79,5 @@ with your favorite browser:
 
 and *Tada*.
 
-Every time you add something to `example_code`, don't forget to re-build the docs
+Every time you add something to `examples_code`, don't forget to re-build the docs
 with `make html` (in the `docs` folder). 

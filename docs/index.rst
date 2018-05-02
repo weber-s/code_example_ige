@@ -9,7 +9,7 @@ IGE code example repo
 What's that?
 ------------
 
-Here you can find some basic and more evoluate example of python script for
+Here you can find some basic and more evoluate examples of python script for
 science.
 
 It goes from basic file manipulation to plotting map.
@@ -17,29 +17,18 @@ It goes from basic file manipulation to plotting map.
 
 Come on, we have cookies!
 -------------------------
-You are more than welcome if you wan't to contribute. This site uses
-``sphinx-gallery`` and is developped `on github <https://github.com/weber-s/code_example_ige>`_.
-Feel free to add your own examples, either :
 
-- **manually** in github via the ``Create new file`` or ``Upload files`` in the
-  ``examples`` folder.
-- **with git** by cloning/forking the depot ``git clone
-  https://github.com/weber-s/code_example_ige``, edit it then make a pull
-  request.
-  If you wan't to build it locally, follow the documentation in the README on
-  github.
+You are more than welcome if you wan't to contribute. It's easy and much
+appreciated. See the `contribution page`_.
 
+Table of content
+----------------
 
 .. toctree::
    :maxdepth: 3
-   :Caption: Gallery
 
+   contributing
    auto_examples_code/index
 
 
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`search`
-
+.. _`contribution page`: contributing.html

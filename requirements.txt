@@ -5,3 +5,4 @@ pillow
 sphinx
 git+https://github.com/sphinx-gallery/sphinx-gallery
 pypandoc
+m2r

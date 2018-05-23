@@ -2,6 +2,7 @@ matplotlib
 pandas
 seaborn
 pillow
+windrose
 sphinx
 git+https://github.com/sphinx-gallery/sphinx-gallery
 pypandoc

@@ -1,3 +1,4 @@
 venv/
 docs/auto_examples_code/
 docs/_build/
+.ipynb_checkpoints

@@ -33,9 +33,9 @@ df.set_index('date', inplace=True, drop=True)
 
 ###############################################################################
 # Now, we wan't to group it by season: DJF, MAM, JJA, SON. Even if a date object
-# has a lot of attribut (.day, .month, .year, etc), it does have a .season.
+# has a lot of attribut (.day, .month, .year, etc), it does not have a .season.
 # Mostly because what we call "season" change from people to people and place to
-# place. We then have to construct it ourself.
+# place. We then have to construct it from scratch.
 #
 # This function is copy-pastable, so some extra work are done (check for index,
 # type of date, etc).
